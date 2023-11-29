@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2020: true, node: true },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -10,11 +10,24 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'react-refresh'
+  ],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-  },
+    'react-refresh/only-export-components': 'warn',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 0,
+    'react/display-name': 0,
+
+    'no-console': 1,
+    'no-unused-vars': 1,
+    'no-trailing-spaces': 1,
+    'no-multi-spaces': 1,
+    'no-multiple-empty-lines': 1,
+    'space-before-blocks': ['error', 'always'],
+    'object-curly-spacing': [1, 'always'],
+  }
 }
